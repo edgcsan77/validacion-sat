@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h1>Validación QR</h1>
+  <div id="res"></div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    document.getElementById("res").innerHTML = `
+      D1: ${params.get("D1")} <br>
+      D2: ${params.get("D2")} <br>
+      D3: ${params.get("D3")}
+    `;
+  </script>
+</body>
+</html>
