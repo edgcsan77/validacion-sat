@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Validador QR</title>
+</head>
+<body>
+  <h1>Validación por QR</h1>
+
+  <div id="resultado"></div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+
+    const D1 = params.get("D1");
+    const D2 = params.get("D2");
+    const D3 = params.get("D3");
+
+    document.getElementById("resultado").innerHTML = `
+      <p><strong>D1:</strong> ${D1}</p>
+      <p><strong>D2:</strong> ${D2}</p>
+      <p><strong>D3:</strong> ${D3}</p>
+    `;
+  </script>
+</body>
+</html>
