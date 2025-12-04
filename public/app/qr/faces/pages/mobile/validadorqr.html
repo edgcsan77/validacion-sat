@@ -1,26 +1,199 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Validador QR</title>
+    <meta charset="UTF-8">
+    <title>Validador QR / Constancia SAT</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- OJO: ruta absoluta, para que funcione desde /app/qr/... -->
+    <link rel="stylesheet" href="/css/sat-style.css">
 </head>
 <body>
-  <h1>Validación por QR</h1>
 
-  <div id="resultado"></div>
+<div class="page-wrapper">
 
-  <script>
-    const params = new URLSearchParams(window.location.search);
+    <!-- BARRA SUPERIOR RFC -->
+    <div class="info-bar">
+        El RFC: <strong id="rfc"></strong>, tiene asociada la siguiente información.
+    </div>
 
-    const D1 = params.get("D1");
-    const D2 = params.get("D2");
-    const D3 = params.get("D3");
+    <!-- PANEL 1: DATOS DE IDENTIFICACIÓN -->
+    <section class="panel">
+        <div class="panel-header">
+            Datos de Identificación
+        </div>
+        <div class="panel-body">
+            <table class="data-table">
+                <tr>
+                    <td class="label"><span class="strong-right">CURP:</span></td>
+                    <td class="value" id="curp"></td>
+                </tr>
+                <tr>
+                    <td class="label"><span class="strong-right">Nombre:</span></td>
+                    <td class="value" id="nombre"></td>
+                </tr>
+                <tr>
+                    <td class="label"><span class="strong-right">Apellido Paterno:</span></td>
+                    <td class="value" id="apellido_paterno"></td>
+                </tr>
+                <tr>
+                    <td class="label"><span class="strong-right">Apellido Materno:</span></td>
+                    <td class="value" id="apellido_materno"></td>
+                </tr>
+                <tr>
+                    <td class="label"><span class="strong-right">Fecha Nacimiento:</span></td>
+                    <td class="value" id="fecha_nacimiento"></td>
+                </tr>
+                <tr>
+                    <td class="label"><span class="strong-right">Fecha de Inicio de operaciones:</span></td>
+                    <td class="value" id="fecha_inicio_operaciones"></td>
+                </tr>
+                <tr>
+                    <td class="label"><span class="strong-right">Situación del contribuyente:</span></td>
+                    <td class="value" id="situacion_contribuyente"></td>
+                </tr>
+                <tr>
+                    <td class="label"><span class="strong-right">Fecha del último cambio de situación:</span></td>
+                    <td class="value" id="fecha_ultimo_cambio"></td>
+                </tr>
+            </table>
+        </div>
+    </section>
 
-    document.getElementById("resultado").innerHTML = `
-      <p><strong>D1:</strong> ${D1}</p>
-      <p><strong>D2:</strong> ${D2}</p>
-      <p><strong>D3:</strong> ${D3}</p>
-    `;
-  </script>
+    <!-- PANEL 2: DATOS DE UBICACIÓN -->
+    <section class="panel">
+        <div class="panel-header">
+            Datos de Ubicación (domicilio fiscal, vigente)
+        </div>
+        <div class="panel-body">
+            <table class="data-table">
+                <tr>
+                    <td class="label"><span class="strong-right">Entidad Federativa:</span></td>
+                    <td class="value" id="entidad"></td>
+                </tr>
+                <tr>
+                    <td class="label"><span class="strong-right">Municipio o delegación:</span></td>
+                    <td class="value" id="municipio"></td>
+                </tr>
+                <tr>
+                    <td class="label"><span class="strong-right">Colonia:</span></td>
+                    <td class="value" id="colonia"></td>
+                </tr>
+                <tr>
+                    <td class="label"><span class="strong-right">Tipo de vialidad:</span></td>
+                    <td class="value" id="tipo_vialidad"></td>
+                </tr>
+                <tr>
+                    <td class="label"><span class="strong-right">Nombre de la vialidad:</span></td>
+                    <td class="value" id="nombre_vialidad"></td>
+                </tr>
+                <tr>
+                    <td class="label"><span class="strong-right">Número exterior:</span></td>
+                    <td class="value" id="numero_exterior"></td>
+                </tr>
+                <tr>
+                    <td class="label"><span class="strong-right">Número interior:</span></td>
+                    <td class="value" id="numero_interior"></td>
+                </tr>
+                <tr>
+                    <td class="label"><span class="strong-right">CP:</span></td>
+                    <td class="value" id="cp"></td>
+                </tr>
+                <tr>
+                    <td class="label"><span class="strong-right">Correo electrónico:</span></td>
+                    <td class="value" id="correo"></td>
+                </tr>
+                <tr>
+                    <td class="label"><span class="strong-right">AL:</span></td>
+                    <td class="value" id="al"></td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <!-- PANEL 3: CARACTERÍSTICAS FISCALES -->
+    <section class="panel">
+        <div class="panel-header">
+            Características fiscales (vigente)
+        </div>
+        <div class="panel-body">
+            <table class="data-table">
+                <tr>
+                    <td class="label"><span class="strong-right">Régimen:</span></td>
+                    <td class="value" id="regimen"></td>
+                </tr>
+                <tr>
+                    <td class="label"><span class="strong-right">Fecha de alta:</span></td>
+                    <td class="value" id="fecha_alta"></td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+</div>
+
+<script>
+  // 1) Leer parámetros D1, D2, D3
+  const params = new URLSearchParams(window.location.search);
+  const D1 = params.get("D1");
+  const D2 = params.get("D2");
+  const D3 = params.get("D3"); // idCIF_RFC
+
+  // Opcional: validar D1 y D2
+  if (D1 !== "10" || D2 !== "1") {
+    alert("Parámetros inválidos en el QR.");
+  }
+
+  // 2) Cargar base de datos generada por Python
+  fetch("/data/personas.json")
+    .then(r => r.json())
+    .then(db => {
+      const persona = db[D3];
+      if (!persona) {
+        document.body.innerHTML = "<h2>No se encontró información para este código.</h2>";
+        return;
+      }
+
+      // 3) Rellenar el DOM
+      const set = (id, value) => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = value || "";
+      };
+
+      set("rfc", persona.rfc);
+      set("curp", persona.curp);
+      set("nombre", persona.nombre);
+      set("apellido_paterno", persona.apellido_paterno);
+      set("apellido_materno", persona.apellido_materno);
+      set("fecha_nacimiento", persona.fecha_nacimiento);
+      set("fecha_inicio_operaciones", persona.fecha_inicio_operaciones);
+      set("situacion_contribuyente", persona.situacion_contribuyente);
+      set("fecha_ultimo_cambio", persona.fecha_ultimo_cambio);
+
+      set("entidad", persona.entidad);
+      set("municipio", persona.municipio);
+      set("colonia", persona.colonia);
+      set("tipo_vialidad", persona.tipo_vialidad);
+      set("nombre_vialidad", persona.nombre_vialidad);
+      set("numero_exterior", persona.numero_exterior);
+      set("numero_interior", persona.numero_interior);
+      set("cp", persona.cp);
+      set("correo", persona.correo || "");
+      set("al", persona.al || "");
+
+      set("regimen", persona.regimen);
+      set("fecha_alta", persona.fecha_alta);
+    })
+    .catch(err => {
+      console.error(err);
+      document.body.innerHTML = "<h2>Error cargando datos de validación.</h2>";
+    });
+</script>
+
 </body>
 </html>
