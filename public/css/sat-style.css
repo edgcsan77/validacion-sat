@@ -34,9 +34,7 @@ body {
     margin-bottom: 15px;
 
     /* Sombra EXACTA como los paneles */
-    box-shadow:
-        0 1px 0 rgba(255, 255, 255, 0.4),
-        0 3px 3px rgba(179, 142, 93, 0.8);
+    box-shadow: 0 3px 3px rgba(179, 142, 93, 0.8);
 }
 
 /* El RFC y el texto de la barra todo al mismo peso */
