@@ -130,9 +130,15 @@ table.data-table tr td.value {
     font-weight: 550;
 }
 
-/* Mover TODO (label + value) del panel de Características Fiscales hacia la izquierda */
+/* Mover TODO el panel 3 (Características fiscales) más a la izquierda en PC */
+.panel:nth-of-type(3) {
+    margin-left: -10px;   /* prueba -8, -10, -12 hasta que te guste */
+    margin-right: -10px;  /* opcional, para mantener simetría con la derecha */
+}
+
+/* Y ajusta también el padding interno de ese panel */
 .panel:nth-of-type(3) .panel-body {
-    padding-left: 10px !important;   /* antes estaba en 35px */
+    padding: 10px 35px 31px 10px !important;  /* izquierda mucho más cortita */
 }
 
 /* ========== AJUSTES PARA MÓVIL / VENTANA ANGOSTA ========== */
