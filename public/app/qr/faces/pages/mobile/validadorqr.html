@@ -148,7 +148,7 @@
     throw new Error("Parámetros inválidos");
   }
 
-  const API_URL = "https://curp-backend.onrender.com/api/constancia/" + encodeURIComponent(D3);
+  const API_URL = "https://curp-backend.onrender.com/api/persona/" + encodeURIComponent(D3);
 
   fetch(API_URL)
     .then(r => {
