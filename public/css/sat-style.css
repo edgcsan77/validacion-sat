@@ -51,6 +51,10 @@ body {
     box-shadow: 0 3px 3px rgba(179, 142, 93, 0.8);
 }
 
+.panel:first-of-type {
+    margin-top: 0;
+}
+
 /* Título dorado ("Datos de Identificación", etc.) */
 .panel-header {
     border: 1px solid rgb(179, 142, 93);
