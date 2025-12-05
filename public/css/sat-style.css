@@ -71,20 +71,22 @@ table.data-table td {
     vertical-align: top;
 }
 
-/* Columna de etiquetas (PC) */
+/* Columna de etiquetas */
 table.data-table tr td.label {
-    width: 32%;             /* relativo, no tan rígido */
-    max-width: 260px;
-    font-weight: 550;
+    /* quitamos el ancho fijo */
+    width: auto;
+    max-width: none;
+
+    font-weight: 500;
     text-align: left;
-    padding-right: 10px;
+    padding-right: 8px;   /* solo un pequeño espacio */
     white-space: nowrap;
 }
 
-/* Bloque interno para alinear por la primera letra */
+/* Bloque interno */
 td.label .label-text {
     display: inline-block;
-    width: auto;
+    width: auto;          /* ya no forzamos 230px */
     text-align: left;
 }
 
