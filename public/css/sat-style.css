@@ -41,45 +41,47 @@ body {
     font-weight: 400;
 }
 
-/* ========== PANELES ========== */
+/* ====== PANELES ESTILO SAT REAL ====== */
+
+/* Contenedor general del panel */
 .panel {
     border-radius: 6px;
     overflow: hidden;
-    box-shadow: 0 3px 3px rgba(179, 142, 93, 0.8);    /* como .ui-shadow */
+    margin-bottom: 14px;
+    box-shadow: 0 3px 3px rgba(179, 142, 93, 0.8);
 }
 
+/* Título dorado ("Datos de Identificación", etc.) */
 .panel-header {
-    border: 1px solid rgb(179, 142, 93);              /* mismo borde */
-    border-bottom: none;                              /* para que se funda con el cuerpo */
+    border: 1px solid rgb(179, 142, 93);
+    border-bottom: none;
     padding: 6px 15px;
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
-    font-weight: 400;                                 /* igual que el SAT */
-    color: #3e3e3e;                                   /* texto gris oscuro */
-    text-shadow: 0 0 0 #ffffff;                       /* prácticamente sin sombra */
+    font-weight: 400; /* ellos no la traen TAN bold */
+    color: #3e3e3e;
+    text-shadow: 0 0 0 #ffffff;
 
-    /* degradado tomado de .ui-bar-b */
     background: rgba(179, 142, 93, 0.05);
     background-image: linear-gradient(
-        rgba(179, 142, 93, 0.06),                     /* parte alta: casi crema */
-        rgb(179, 142, 93)                             /* parte baja: dorado fuerte */
+        rgba(179, 142, 93, 0.06),
+        rgb(179, 142, 93)
     );
 }
 
+/* Cuerpo beige */
 .panel-body {
-    border: 1px solid rgb(179, 142, 93);              /* mismo color que el header */
-    border-top: none;                                 /* para que no se vea doble línea */
-    padding: 12px 40px 25px 35px;
-
+    border: 1px solid rgb(179, 142, 93);
+    border-top: none;
+    padding: 10px 35px 18px 35px;
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
     color: #333333;
 
-    /* degradado de .ui-body-c */
     background: #f9f9f9;
     background-image: linear-gradient(
-        #f9f9f9,                                      /* parte alta casi blanca */
-        rgba(179, 142, 93, .15)                       /* parte baja ligeramente dorada */
+        #f9f9f9,
+        rgba(179, 142, 93, .15)
     );
 }
 
