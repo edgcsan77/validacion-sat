@@ -1,19 +1,19 @@
 {
-  "12185260789_CASE020722MP6": {
+  "21708367582_CASE020722MP6": {
     "D1": "10",
     "D2": "1",
-    "D3": "12185260789_CASE020722MP6",
+    "D3": "21708367582_CASE020722MP6",
     "rfc": "CASE020722MP6",
     "curp": "CASE020722HTSRNDA8",
     "nombre": "EDGAR AARON",
     "apellido_paterno": "CARREÑO",
     "apellido_materno": "SANTANA",
     "fecha_nacimiento": "22-07-2002",
-    "fecha_inicio_operaciones": "12-02-2020",
+    "fecha_inicio_operaciones": "19-01-2020",
     "situacion_contribuyente": "ACTIVO",
-    "fecha_ultimo_cambio": "12-02-2020",
+    "fecha_ultimo_cambio": "19-01-2020",
     "regimen": "Régimen de Sueldos y Salarios e Ingresos Asimilados a Salarios",
-    "fecha_alta": "12-02-2020",
+    "fecha_alta": "19-01-2020",
     "entidad": "TAMAULIPAS",
     "municipio": "REYNOSA",
     "colonia": "SATÉLITE",
@@ -26,6 +26,6 @@
     "al": "",
     "RFC_ETIQUETA": "CASE020722MP6",
     "NOMBRE_ETIQUETA": "EDGAR AARON CARREÑO SANTANA",
-    "IDCIF_ETIQUETA": "12185260789"
+    "IDCIF_ETIQUETA": "21708367582"
   }
 }
