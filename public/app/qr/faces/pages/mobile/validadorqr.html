@@ -138,28 +138,24 @@
 </div>
 
 <script>
-  // 1) Leer parámetros D1, D2, D3
   const params = new URLSearchParams(window.location.search);
   const D1 = params.get("D1");
   const D2 = params.get("D2");
-  const D3 = params.get("D3"); // idCIF_RFC
+  const D3 = params.get("D3");
 
-  // Opcional: validar D1 y D2
-  if (D1 !== "10" || D2 !== "1") {
-    alert("Parámetros inválidos en el QR.");
+  if (D1 !== "10" || D2 !== "1" || !D3) {
+    document.body.innerHTML = "<h2>QR inválido</h2>";
+    throw new Error("Parámetros inválidos");
   }
 
-  // 2) Cargar base de datos generada por Python
-  fetch("/data/personas.json")
-    .then(r => r.json())
-    .then(db => {
-      const persona = db[D3];
-      if (!persona) {
-        document.body.innerHTML = "<h2>No se encontró información para este código.</h2>";
-        return;
-      }
+  const API_URL = "https://curp-backend.onrender.com/api/constancia/" + encodeURIComponent(D3);
 
-      // 3) Rellenar el DOM
+  fetch(API_URL)
+    .then(r => {
+      if (!r.ok) throw new Error("Registro no encontrado en backend");
+      return r.json();
+    })
+    .then(persona => {
       const set = (id, value) => {
         const el = document.getElementById(id);
         if (el) el.textContent = value || "";
