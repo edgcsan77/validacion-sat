@@ -209,7 +209,7 @@ table.data-table tr td.value {
         padding: 6px 6px;      /* un poco más de aire como el original */
         word-break: normal;
         overflow-wrap: break-word;
-        line-height: 1.25;
+        line-height: 1.10;
     }
 
     /* COLUMNA ETIQUETAS */
