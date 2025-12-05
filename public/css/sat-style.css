@@ -74,7 +74,7 @@ table.data-table td {
 table.data-table tr td.label {
     width: 32%;             /* relativo, no tan rígido */
     max-width: 260px;
-    font-weight: 600;
+    font-weight: 500;
     text-align: right;
     padding-right: 10px;
     white-space: nowrap;
@@ -95,7 +95,7 @@ table.data-table tr td.value {
 
 /* Negritas fuertes del lado derecho (ej. CURP:) */
 .strong-right {
-    font-weight: 600;
+    font-weight: 500;
 }
 
 /* ========== AJUSTES PARA MÓVIL ========== */
