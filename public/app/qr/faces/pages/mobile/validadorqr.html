@@ -138,25 +138,27 @@
 </div>
 
 <script>
+  // 1) Leer parámetros D1, D2, D3
   const params = new URLSearchParams(window.location.search);
   const D1 = params.get("D1");
   const D2 = params.get("D2");
-  const D3 = params.get("D3");
+  const D3 = params.get("D3"); // idCIF_RFC
 
   if (D1 !== "10" || D2 !== "1" || !D3) {
     document.body.innerHTML = "<h2>QR inválido</h2>";
     throw new Error("Parámetros inválidos");
   }
 
-  const API_BASE = "https://curp-backend-docker.onrender.com";
-  const API_URL  = `${API_BASE}/api/persona/${encodeURIComponent(D3)}`;
+  // 2) Cargar la base de datos estática
+  fetch("/data/personas.json")
+    .then(r => r.json())
+    .then(db => {
+      const persona = db[D3];
+      if (!persona) {
+        document.body.innerHTML = "<h2>No se encontró información para este código.</h2>";
+        return;
+      }
 
-  fetch(API_URL)
-    .then(r => {
-      if (!r.ok) throw new Error("Registro no encontrado en backend");
-      return r.json();
-    })
-    .then(persona => {
       const set = (id, value) => {
         const el = document.getElementById(id);
         if (el) el.textContent = value || "";
