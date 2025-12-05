@@ -125,29 +125,26 @@ table.data-table tr td.value {
     }
 }
 
-/* ===== HEADER SAT LOGOS ===== */
+/* ===== HEADER SAT LOGOS PEGADO ARRIBA ===== */
 .sat-header {
     width: 100%;
-    background: #f8f7f6;      /* mismo fondo que el cuerpo */
-    padding: 16px 0 10px 0;   /* espacio arriba y abajo */
+    background: #f8f7f6;
+    padding: 0;              /* ← QUITA todo el espacio */
+    margin: 0;               /* ← nada de separación */
     text-align: center;
+    border-bottom: 1px solid #d1b58a;
 }
 
-/* Imagen centrada, con ancho máximo tipo SAT */
 .sat-header img {
     display: block;
     margin: 0 auto;
     width: 100%;
-    max-width: 460px;   /* ajústalo 440–480px si quieres más/menos ancho */
+    max-width: 460px;
     height: auto;
 }
 
-/* Ajuste en móvil: un poco más pequeño */
+/* Móvil */
 @media (max-width: 768px) {
-    .sat-header {
-        padding: 12px 0 8px 0;
-    }
-
     .sat-header img {
         max-width: 360px;
     }
