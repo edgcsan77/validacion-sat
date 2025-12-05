@@ -55,7 +55,7 @@ body {
     background: linear-gradient(#dbccb8, #b59263);
     padding: 6px 15px;
     font-size: 16px;
-    font-weight: 500;          /* énfasis suave tipo SAT */
+    font-weight: 550;          /* énfasis suave tipo SAT */
     color: #5a452a;
     border-bottom: 1px solid #b38e5d;
 }
@@ -79,7 +79,7 @@ table.data-table td {
 /* Columna de etiquetas (CURP:, Nombre:, etc.) */
 table.data-table tr td.label {
     width: 230px;              /* ancho fijo, NO porcentaje */
-    font-weight: 500;          /* un poco más marcada */
+    font-weight: 550;          /* un poco más marcada */
     text-align: right;         /* alineadas a la derecha como el SAT */
     padding-right: 10px;       /* separación corta respecto al valor */
     white-space: nowrap;
@@ -100,7 +100,7 @@ table.data-table tr td.value {
 
 /* Negritas fuertes del lado derecho (ej. span dentro de la etiqueta) */
 .strong-right {
-    font-weight: 500;
+    font-weight: 550;
 }
 
 /* ========== AJUSTES PARA MÓVIL / VENTANA ANGOSTA ========== */
