@@ -19,9 +19,9 @@ body {
 /* ========== CONTENEDOR GENERAL ========== */
 .page-wrapper {
     width: 100%;
-    max-width: none;        /* ← SIN límite */
-    margin: 8px 0;          /* que inicie desde la izquierda como en el SAT */
-    padding: 0 16px;        /* respirito lateral */
+    max-width: none;
+    margin: 8px 0;
+    padding: 0 16px;
 }
 
 /* ========== BARRA RFC ========== */
@@ -33,6 +33,12 @@ body {
     font-size: 16px;
     margin-bottom: 15px;
     box-shadow: 0 0 3px rgba(0,0,0,0.08);
+}
+
+/* El RFC y el texto de la barra todo al mismo peso */
+.info-bar span,
+.info-bar strong {
+    font-weight: 400;
 }
 
 /* ========== PANELES ========== */
@@ -49,13 +55,9 @@ body {
     background: linear-gradient(#dbccb8, #b59263);
     padding: 6px 15px;
     font-size: 16px;
-    font-weight: 550;
+    font-weight: 500;          /* énfasis suave tipo SAT */
     color: #5a452a;
     border-bottom: 1px solid #b38e5d;
-}
-
-.panel-body {
-    padding: 12px 40px 25px 35px; /* PC */
 }
 
 /* ========== TABLA DE DATOS ========== */
@@ -72,12 +74,13 @@ table.data-table td {
 
 /* Columna de etiquetas (PC) */
 table.data-table tr td.label {
-    width: 32%;             /* relativo, no tan rígido */
+    width: 32%;
     max-width: 260px;
-    font-weight: 550;
+    font-weight: 500;          /* etiquetas un poquito más marcadas */
     text-align: right;
     padding-right: 10px;
     white-space: nowrap;
+    letter-spacing: 0.2px;
 }
 
 /* Bloque interno para alinear por la primera letra */
@@ -90,16 +93,16 @@ td.label .label-text {
 /* Columna de valores */
 table.data-table tr td.value {
     color: #555555;
-    font-weight: 400;
+    font-weight: 400;          /* texto normal */
     text-align: left;
 }
 
 /* Negritas fuertes del lado derecho (ej. CURP:) */
 .strong-right {
-    font-weight: 550;
+    font-weight: 500;
 }
 
-/* ========== AJUSTES PARA MÓVIL ========== */
+/* ========== AJUSTES PARA MÓVIL / VENTANA ANGOSTA ========== */
 @media (max-width: 1100px) {
     body {
         font-size: 15.2px;
@@ -108,22 +111,21 @@ table.data-table tr td.value {
     .info-bar,
     .panel-header,
     table.data-table {
-        font-weight: 400;
         font-size: 15.2px;
     }
 
     .panel-body {
-        padding: 12px 12px 18px 12px;  /* menos margen lateral en cel */
+        padding: 12px 12px 18px 12px;
     }
 
     table.data-table tr td.label {
-        width: 40%;            /* un poco más de ancho para la etiqueta */
+        width: 40%;
         padding-right: 6px;
-        white-space: normal;   /* permite que la etiqueta se parta en 2 líneas */
+        white-space: normal;
     }
 
     td.label .label-text {
-        width: auto;           /* en cel no forzamos los 230px */
+        width: auto;
     }
 
     table.data-table tr td.value {
@@ -135,10 +137,10 @@ table.data-table tr td.value {
 .sat-header {
     width: 100%;
     background: #f8f7f6;
-    padding: 0;          /* totalmente pegado arriba */
-    margin: 0 0 50px 0;
+    padding: 0;
+    margin: 0 0 20px 0;   /* puedes subir o bajar este valor */
     text-align: center;
-    border: none;       /* ← QUITA cualquier línea */
+    border: none;
 }
 
 .sat-header img {
