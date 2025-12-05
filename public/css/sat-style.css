@@ -44,24 +44,43 @@ body {
 /* ========== PANELES ========== */
 .panel {
     border-radius: 6px;
-    border: 1px solid #b38e5d;
-    margin-bottom: 14px;
     overflow: hidden;
-    box-shadow: 0 0 3px rgba(0,0,0,0.08);
-    background: linear-gradient(#fbf9f6, #f1ede6);
+    box-shadow: 0 3px 3px rgba(179, 142, 93, 0.8);    /* como .ui-shadow */
 }
 
 .panel-header {
-    background: linear-gradient(#dbccb8, #b59263);
+    border: 1px solid rgb(179, 142, 93);              /* mismo borde */
+    border-bottom: none;                              /* para que se funda con el cuerpo */
     padding: 6px 15px;
+    font-family: 'Montserrat', sans-serif;
     font-size: 16px;
-    font-weight: 550;          /* énfasis suave tipo SAT */
-    color: #5a452a;
-    border-bottom: 1px solid #b38e5d;
+    font-weight: 400;                                 /* igual que el SAT */
+    color: #3e3e3e;                                   /* texto gris oscuro */
+    text-shadow: 0 0 0 #ffffff;                       /* prácticamente sin sombra */
+
+    /* degradado tomado de .ui-bar-b */
+    background: rgba(179, 142, 93, 0.05);
+    background-image: linear-gradient(
+        rgba(179, 142, 93, 0.06),                     /* parte alta: casi crema */
+        rgb(179, 142, 93)                             /* parte baja: dorado fuerte */
+    );
 }
 
 .panel-body {
-    padding: 10px 35px 18px 35px;   /* muy parecido al SAT */
+    border: 1px solid rgb(179, 142, 93);              /* mismo color que el header */
+    border-top: none;                                 /* para que no se vea doble línea */
+    padding: 12px 40px 25px 35px;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    color: #333333;
+
+    /* degradado de .ui-body-c */
+    background: #f9f9f9;
+    background-image: linear-gradient(
+        #f9f9f9,                                      /* parte alta casi blanca */
+        rgba(179, 142, 93, .15)                       /* parte baja ligeramente dorada */
+    );
 }
 
 /* ========== TABLA DE DATOS ========== */
