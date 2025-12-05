@@ -131,7 +131,7 @@ table.data-table tr td.value {
     width: 100%;
     background: #f8f7f6;
     padding: 0;          /* totalmente pegado arriba */
-    margin: 0;
+    margin: 0 0 12px 0;
     text-align: center;
     border: none;       /* ← QUITA cualquier línea */
 }
