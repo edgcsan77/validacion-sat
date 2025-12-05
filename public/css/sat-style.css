@@ -79,7 +79,7 @@ table.data-table tr td.label {
 
     font-weight: 500;
     text-align: left;
-    padding-right: 8px;   /* solo un pequeño espacio */
+    padding-right: 0px;   /* solo un pequeño espacio */
     white-space: nowrap;
 }
 
