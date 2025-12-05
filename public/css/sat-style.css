@@ -130,9 +130,20 @@ table.data-table tr td.value {
     font-weight: 550;
 }
 
-/* Ajuste solo para el panel de Características Fiscales en PC */
-.panel:nth-of-type(3) table.data-table td.label {
-    padding-right: 25px;   /* antes tenías 10px */
+/* ==== AJUSTE SOLO PARA "Características fiscales (vigente)" EN PC ==== */
+@media (min-width: 801px) {
+
+    /* Reducimos el padding interno del panel 3 */
+    .panel:nth-of-type(3) .panel-body {
+        padding-left: 20px;   /* antes 35px */
+        padding-right: 20px;
+    }
+
+    /* Hacemos más angosta la columna de etiquetas SOLO en ese panel */
+    .panel:nth-of-type(3) table.data-table td.label {
+        width: 160px;         /* antes 230px global */
+        padding-right: 8px;   /* un poco menos separación */
+    }
 }
 
 /* ========== AJUSTES PARA MÓVIL / VENTANA ANGOSTA ========== */
