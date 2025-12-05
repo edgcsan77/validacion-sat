@@ -153,15 +153,27 @@
     throw new Error("Parámetros inválidos");
   }
 
-  // 2) Cargar la base de datos estática
-  fetch("/data/personas.json")
+  // Función de normalización para comparar claves sin fallar por espacios/mayúsculas
+  const normalizarClave = (s) => (s || "").trim().toUpperCase();
+
+  // 2) Cargar la base de datos estática (con anti-cache)
+  fetch(`/data/personas.json?ts=${Date.now()}`)
     .then(r => r.json())
     .then(db => {
-      const persona = db[D3];
-      if (!persona) {
+      console.log("D3 recibido:", D3);
+      console.log("Claves personas.json:", Object.keys(db));
+
+      const d3Norm = normalizarClave(D3);
+
+      // Buscar una key que coincida con D3 aunque tenga diferencias mínimas
+      const key = Object.keys(db).find(k => normalizarClave(k) === d3Norm);
+
+      if (!key) {
         document.body.innerHTML = "<h2>No se encontró información para este código.</h2>";
         return;
       }
+
+      const persona = db[key];
 
       const set = (id, value) => {
         const el = document.getElementById(id);
