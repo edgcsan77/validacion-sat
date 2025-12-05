@@ -50,5 +50,31 @@
     "cp": "92033",
     "correo": "",
     "al": ""
+  },
+  "11280188118_HECX100730J9A": {
+    "D1": "10",
+    "D2": "1",
+    "D3": "11280188118_HECX100730J9A",
+    "rfc": "HECX100730J9A",
+    "curp": "HECX100730MTSRRMA5",
+    "nombre": "XIMENA BERENICE",
+    "apellido_paterno": "HERNADEZ",
+    "apellido_materno": "CARREÑO",
+    "fecha_nacimiento": "30-07-2010",
+    "fecha_inicio_operaciones": "22-09-2028",
+    "situacion_contribuyente": "ACTIVO",
+    "fecha_ultimo_cambio": "22-09-2028",
+    "regimen": "Régimen de Sueldos y Salarios e Ingresos Asimilados a Salarios",
+    "fecha_alta": "22-09-2028",
+    "entidad": "TAMAULIPAS",
+    "municipio": "REYNOSA",
+    "colonia": "SATÉLITE",
+    "tipo_vialidad": "CALLE",
+    "nombre_vialidad": "14 DE FEBRERO",
+    "numero_exterior": "302",
+    "numero_interior": "",
+    "cp": "88795",
+    "correo": "",
+    "al": ""
   }
 }
