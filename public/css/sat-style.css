@@ -171,53 +171,53 @@ table.data-table tr td.value {
     height: auto;
 }
 
-/* ===== SOLO CELULAR: columnas alineadas en todos los cuadros ===== */
+/* ===== AJUSTE REAL SAT PARA CELULAR ===== */
 @media (max-width: 768px) {
 
-    /* un poquito menos de margen lateral en todo */
-    .page-wrapper {
-        padding: 0 8px;
+    body {
+        font-size: 14.5px;
     }
 
-    /* barra RFC y paneles con mismo margen que los paneles del SAT */
+    .page-wrapper {
+        padding: 0 10px;
+    }
+
     .info-bar,
     .panel {
-        margin-left: 4px;
-        margin-right: 4px;
+        margin-left: 0;
+        margin-right: 0;
     }
 
-    /* padding interno igual en todos los cuerpos de panel */
     .panel-body {
-        padding: 10px 18px 16px 18px;
+        padding: 10px 14px 14px 14px;
     }
 
-    /* la tabla ocupa todo y reparte bien el espacio */
     table.data-table {
         width: 100%;
         table-layout: fixed;
-        font-size: 15.5px;   /* muy parecido al SAT en iPhone */
+        font-size: 14.5px;
     }
 
-    /* hacemos que cada celda se comporte como “columna fija” */
-    table.data-table td.label,
-    table.data-table td.value {
-        display: inline-block;
-        padding-top: 2px;
-        padding-bottom: 2px;
+    table.data-table td {
+        padding: 3px 4px;
         vertical-align: top;
+        word-break: normal;
+        overflow-wrap: break-word;
     }
 
-    /* PRIMERA COLUMNA (etiquetas) – mismo ancho en todos los paneles */
+    /* COLUMNA ETIQUETAS */
     table.data-table td.label {
-        width: 46%;          /* prueba entre 44–48% hasta que te guste */
+        width: 42%;
         text-align: right;
-        padding-right: 8px;
-        white-space: normal; /* permite 2 líneas en textos largos */
+        padding-right: 6px;
+        white-space: normal;
+        font-weight: 600;
     }
 
-    /* SEGUNDA COLUMNA (valores) – ocupa el resto */
+    /* COLUMNA VALORES */
     table.data-table td.value {
-        width: 54%;
+        width: 58%;
         text-align: left;
+        font-weight: 400;
     }
 }
