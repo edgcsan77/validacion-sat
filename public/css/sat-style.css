@@ -132,7 +132,7 @@ table.data-table tr td.value {
 
 /* Mover TODO (label + value) del panel de Características Fiscales hacia la izquierda */
 .panel:nth-of-type(3) .panel-body {
-    padding-left: 20px;   /* antes estaba en 35px */
+    padding-left: 40px;   /* antes estaba en 35px */
 }
 
 /* ========== AJUSTES PARA MÓVIL / VENTANA ANGOSTA ========== */
