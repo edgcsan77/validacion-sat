@@ -131,13 +131,13 @@ table.data-table tr td.value {
 }
 
 /* Mover TODO el panel 3 (Características fiscales) más a la izquierda en PC */
-.panel:nth-of-type(3) {
+.panel:nth-of-type(4) {
     margin-left: -10px;   /* prueba -8, -10, -12 hasta que te guste */
     margin-right: -10px;  /* opcional, para mantener simetría con la derecha */
 }
 
 /* Y ajusta también el padding interno de ese panel */
-.panel:nth-of-type(3) .panel-body {
+.panel:nth-of-type(4) .panel-body {
     padding: 10px 35px 31px 10px !important;  /* izquierda mucho más cortita */
 }
 
