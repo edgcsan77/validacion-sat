@@ -198,18 +198,25 @@ table.data-table tr td.value {
         font-size: 14.5px;
     }
 
+    /* 🔥 ESTO ES LO QUE TE FALTABA (CENTRADO VERTICAL REAL) */
+    table.data-table tr {
+        display: flex;
+        align-items: center;   /* ← CENTRA VERTICALMENTE COMO EL SAT */
+    }
+
     table.data-table td {
-        padding: 3px 4px;
-        vertical-align: top;
+        display: block;
+        padding: 6px 6px;      /* un poco más de aire como el original */
         word-break: normal;
         overflow-wrap: break-word;
+        line-height: 1.35;
     }
 
     /* COLUMNA ETIQUETAS */
     table.data-table td.label {
         width: 42%;
         text-align: right;
-        padding-right: 6px;
+        padding-right: 8px;
         white-space: normal;
         font-weight: 600;
     }
