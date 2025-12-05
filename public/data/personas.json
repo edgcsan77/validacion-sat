@@ -76,5 +76,31 @@
     "cp": "88795",
     "correo": "",
     "al": ""
+  },
+  "29734366545_CASJ870630NY8": {
+    "D1": "10",
+    "D2": "1",
+    "D3": "29734366545_CASJ870630NY8",
+    "rfc": "CASJ870630NY8",
+    "curp": "CASJ870630MTSRNH03",
+    "nombre": "JOHANA EDITH",
+    "apellido_paterno": "CARREÑO",
+    "apellido_materno": "SANTANA",
+    "fecha_nacimiento": "30-06-1987",
+    "fecha_inicio_operaciones": "09-09-2005",
+    "situacion_contribuyente": "ACTIVO",
+    "fecha_ultimo_cambio": "09-09-2005",
+    "regimen": "Régimen de Sueldos y Salarios e Ingresos Asimilados a Salarios",
+    "fecha_alta": "09-09-2005",
+    "entidad": "TAMAULIPAS",
+    "municipio": "REYNOSA",
+    "colonia": "SATÉLITE",
+    "tipo_vialidad": "CALLE",
+    "nombre_vialidad": "14 DE FEBRERO",
+    "numero_exterior": "302",
+    "numero_interior": "",
+    "cp": "88795",
+    "correo": "",
+    "al": ""
   }
 }
