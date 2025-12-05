@@ -19,8 +19,8 @@ body {
 /* ========== CONTENEDOR GENERAL ========== */
 .page-wrapper {
     width: 100%;
-    max-width: 980px;   /* parecido al ancho de la página del SAT */
-    margin: 8px auto;   /* centra la columna como en la original */
+    max-width: none;   /* parecido al ancho de la página del SAT */
+    margin: 8px 0;   /* centra la columna como en la original */
     padding: 0 16px;
 }
 
