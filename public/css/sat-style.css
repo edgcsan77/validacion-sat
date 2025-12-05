@@ -174,9 +174,21 @@ table.data-table tr td.value {
 /* ===== AJUSTE REAL SAT PARA CELULAR ===== */
 @media (max-width: 768px) {
 
+    /* fondo general de la página en cel con degradado */
+    html,
     body {
         font-size: 14.5px;
         padding-bottom: 50px;
+
+        background: #faf7f2;
+        background-image: linear-gradient(
+            to bottom,
+            #ffffff 0%,
+            #f4efe7 35%,
+            #efe6d7 70%,
+            #faf7f2 100%
+        );
+        background-attachment: fixed;
     }
 
     .page-wrapper {
@@ -199,21 +211,19 @@ table.data-table tr td.value {
         font-size: 14.5px;
     }
 
-    /* 🔥 ESTO ES LO QUE TE FALTABA (CENTRADO VERTICAL REAL) */
     table.data-table tr {
         display: flex;
-        align-items: center;   /* ← CENTRA VERTICALMENTE COMO EL SAT */
+        align-items: center;
     }
 
     table.data-table td {
         display: block;
-        padding: 6px 6px;      /* un poco más de aire como el original */
+        padding: 6px 6px;
         word-break: normal;
         overflow-wrap: break-word;
         line-height: 1.10;
     }
 
-    /* COLUMNA ETIQUETAS */
     table.data-table td.label {
         width: 42%;
         text-align: right;
@@ -222,7 +232,6 @@ table.data-table tr td.value {
         font-weight: 600;
     }
 
-    /* COLUMNA VALORES */
     table.data-table td.value {
         width: 58%;
         text-align: left;
