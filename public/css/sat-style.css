@@ -128,21 +128,27 @@ table.data-table tr td.value {
 /* ===== HEADER SAT LOGOS ===== */
 .sat-header {
     width: 100%;
+    background: #f8f7f6;      /* mismo fondo que el cuerpo */
+    padding: 16px 0 10px 0;   /* espacio arriba y abajo */
     text-align: center;
-    background: #ffffff;
-    padding: 10px 10px 6px 10px;
-    border-bottom: 1px solid #d1b58a;
 }
 
+/* Imagen centrada, con ancho máximo tipo SAT */
 .sat-header img {
-    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 460px;   /* ajústalo 440–480px si quieres más/menos ancho */
     height: auto;
-    max-height: 85px;   /* controla el alto en PC */
 }
 
-/* Ajuste en móvil */
+/* Ajuste en móvil: un poco más pequeño */
 @media (max-width: 768px) {
+    .sat-header {
+        padding: 12px 0 8px 0;
+    }
+
     .sat-header img {
-        max-height: 60px;
+        max-width: 360px;
     }
 }
