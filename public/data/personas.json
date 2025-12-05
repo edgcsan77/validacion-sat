@@ -24,5 +24,31 @@
     "cp": "88655",
     "correo": "",
     "al": ""
+  },
+  "29330628640_CASV990814FB6": {
+    "D1": "10",
+    "D2": "1",
+    "D3": "29330628640_CASV990814FB6",
+    "rfc": "CASV990814FB6",
+    "curp": "CASV990814HTSSNC00",
+    "nombre": "VICTOR OSIEL",
+    "apellido_paterno": "CASTRO",
+    "apellido_materno": "SANCHEZ",
+    "fecha_nacimiento": "14-08-1999",
+    "fecha_inicio_operaciones": "08-12-2017",
+    "situacion_contribuyente": "ACTIVO",
+    "fecha_ultimo_cambio": "08-12-2017",
+    "regimen": "Régimen de Sueldos y Salarios e Ingresos Asimilados a Salarios",
+    "fecha_alta": "08-12-2017",
+    "entidad": "VERACRUZ DE IGNACIO DE LA LLAVE",
+    "municipio": "PUEBLO VIEJO",
+    "colonia": "UNIÓN POPULAR",
+    "tipo_vialidad": "CALLE",
+    "nombre_vialidad": "CONCORDIA",
+    "numero_exterior": "669",
+    "numero_interior": "",
+    "cp": "92033",
+    "correo": "",
+    "al": ""
   }
 }
