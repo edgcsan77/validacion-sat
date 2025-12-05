@@ -19,9 +19,9 @@ body {
 /* ========== CONTENEDOR GENERAL ========== */
 .page-wrapper {
     width: 100%;
-    max-width: none;
-    margin: 8px 0;
-    padding: 0 16px;   /* margen lateral igual al SAT */
+    max-width: 980px;   /* parecido al ancho de la página del SAT */
+    margin: 8px auto;   /* centra la columna como en la original */
+    padding: 0 16px;
 }
 
 /* ========== BARRA RFC ========== */
