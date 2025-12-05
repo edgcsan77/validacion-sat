@@ -130,9 +130,9 @@ table.data-table tr td.value {
     font-weight: 550;
 }
 
-/* Ajuste solo para el panel de Características Fiscales en PC */
-.panel:nth-of-type(3) .data-table td.label {
-    padding-right: 40px;   /* antes tenías 10px */
+/* Mover TODO (label + value) del panel de Características Fiscales hacia la izquierda */
+.panel:nth-of-type(3) .panel-body {
+    padding-left: 20px;   /* antes estaba en 35px */
 }
 
 /* ========== AJUSTES PARA MÓVIL / VENTANA ANGOSTA ========== */
