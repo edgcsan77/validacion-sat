@@ -125,14 +125,14 @@ table.data-table tr td.value {
     }
 }
 
-/* ===== HEADER SAT LOGOS PEGADO ARRIBA ===== */
+/* ===== HEADER SAT LOGOS PEGADO ARRIBA SIN LÍNEA ===== */
 .sat-header {
     width: 100%;
     background: #f8f7f6;
-    padding: 0;              /* ← QUITA todo el espacio */
-    margin: 0;               /* ← nada de separación */
+    padding: 0;          /* totalmente pegado arriba */
+    margin: 0;
     text-align: center;
-    border-bottom: 1px solid #d1b58a;
+    border: none;       /* ← QUITA cualquier línea */
 }
 
 .sat-header img {
