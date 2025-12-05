@@ -95,7 +95,7 @@ table.data-table tr td.value {
 }
 
 /* ========== AJUSTES PARA MÓVIL ========== */
-@media (max-width: 768px) {
+@media (max-width: 1100px) {
     body {
         font-size: 15.2px;
     }
