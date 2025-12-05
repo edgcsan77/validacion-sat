@@ -130,29 +130,6 @@ table.data-table tr td.value {
     font-weight: 550;
 }
 
-/* ========== AJUSTES PARA MÓVIL / VENTANA ANGOSTA ========== */
-@media (max-width: 1100px) {
-    body {
-        font-size: 15.2px;
-    }
-
-    .info-bar,
-    .panel-header,
-    table.data-table {
-        font-size: 15.2px;
-    }
-
-    .panel-body {
-        padding: 10px 16px 16px 16px;
-    }
-
-    table.data-table tr td.label {
-        width: 200px;          /* un poco menos ancho en pantallas chicas */
-        padding-right: 8px;
-        white-space: normal;   /* permite saltar de línea si es MUY largo */
-    }
-}
-
 /* ===== HEADER SAT LOGOS PEGADO ARRIBA SIN LÍNEA ===== */
 .sat-header {
     width: 100%;
