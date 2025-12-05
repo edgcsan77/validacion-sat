@@ -16,9 +16,9 @@ body {
 /* ========== CONTENEDOR GENERAL ========== */
 .page-wrapper {
     width: 100%;
-    max-width: 960px;          /* en PC no pasa de 960px */
-    margin: 8px auto;          /* centrado en pantallas grandes */
-    padding: 0 16px;           /* respirito lateral */
+    max-width: none;        /* ← SIN límite */
+    margin: 8px 0;          /* que inicie desde la izquierda como en el SAT */
+    padding: 0 16px;        /* respirito lateral */
 }
 
 /* ========== BARRA RFC ========== */
