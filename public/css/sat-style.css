@@ -56,7 +56,7 @@ body {
 }
 
 .panel-body {
-    padding: 12px 40px 25px 35px; /* PC */
+    padding: 10px 16px 18px 16px; /* PC */
 }
 
 /* ========== TABLA DE DATOS ========== */
@@ -76,7 +76,7 @@ table.data-table tr td.label {
     width: 32%;             /* relativo, no tan rígido */
     max-width: 260px;
     font-weight: 550;
-    text-align: right;
+    text-align: left;
     padding-right: 10px;
     white-space: nowrap;
 }
@@ -84,7 +84,7 @@ table.data-table tr td.label {
 /* Bloque interno para alinear por la primera letra */
 td.label .label-text {
     display: inline-block;
-    width: 230px;
+    width: auto;
     text-align: left;
 }
 
