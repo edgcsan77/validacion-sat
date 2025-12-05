@@ -1,29 +1,27 @@
-/* ========== FUENTE GLOBAL (se usa junto con el <link> de Google Fonts) ========== */
+/* ========== FUENTE GLOBAL ========== */
 body {
     font-family: 'Montserrat', sans-serif;
-    font-size: 16px; /* 1em real del SAT */
+    font-size: 16px;
     line-height: 1.5;
     background: #f8f7f6;
     color: #333333;
     margin: 0;
 }
 
-/* ====== RESET SENCILLO ====== */
+/* RESET */
 * {
     box-sizing: border-box;
 }
 
-/* ====== CONTENEDOR GENERAL ====== */
+/* ========== CONTENEDOR GENERAL ========== */
 .page-wrapper {
     width: 100%;
-    max-width: none;    /* ← quita el límite */
-    margin: 8px 0;      /* ← sin centrado horizontal */
-    padding: 0 8px;     /* ← pequeño respiro lateral */
-    padding-left: 15px;
-    padding-right: 15px;
+    max-width: 960px;          /* en PC no pasa de 960px */
+    margin: 8px auto;          /* centrado en pantallas grandes */
+    padding: 0 16px;           /* respirito lateral */
 }
 
-/* ====== BARRA SUPERIOR DE INFORMACIÓN (RFC...) ====== */
+/* ========== BARRA RFC ========== */
 .info-bar {
     background: linear-gradient(#f8f7f6, #f0ece4);
     border: 1px solid #b38e5d;
@@ -34,7 +32,7 @@ body {
     box-shadow: 0 0 3px rgba(0,0,0,0.08);
 }
 
-/* ====== PANEL GENERAL ====== */
+/* ========== PANELES ========== */
 .panel {
     border-radius: 6px;
     border: 1px solid #b38e5d;
@@ -54,10 +52,10 @@ body {
 }
 
 .panel-body {
-    padding: 12px 40px 25px 35px;
+    padding: 12px 40px 25px 35px; /* PC */
 }
 
-/* ====== TABLA DE DATOS ====== */
+/* ========== TABLA DE DATOS ========== */
 table.data-table {
     width: 100%;
     border-collapse: collapse;
@@ -69,14 +67,24 @@ table.data-table td {
     vertical-align: top;
 }
 
+/* Columna de etiquetas (PC) */
 table.data-table tr td.label {
-    width: 260px;
+    width: 32%;             /* relativo, no tan rígido */
+    max-width: 260px;
     font-weight: 700;
     text-align: right;
-    padding-right: 15px;
+    padding-right: 10px;
     white-space: nowrap;
 }
 
+/* Bloque interno para alinear por la primera letra */
+td.label .label-text {
+    display: inline-block;
+    width: 230px;
+    text-align: left;
+}
+
+/* Columna de valores */
 table.data-table tr td.value {
     text-align: left;
 }
@@ -86,45 +94,33 @@ table.data-table tr td.value {
     font-weight: 700;
 }
 
-/* Ajuste responsive mínimo para móviles */
+/* ========== AJUSTES PARA MÓVIL ========== */
 @media (max-width: 768px) {
     body {
-        font-size: 15.2px; /* 0.95em real del SAT */
-    }
-
-    .info-bar {
         font-size: 15.2px;
     }
 
-    .panel-header {
-        font-size: 15.2px;
-    }
-
+    .info-bar,
+    .panel-header,
     table.data-table {
         font-size: 15.2px;
     }
 
     .panel-body {
-        padding: 15px 15px 18px 15px;
+        padding: 12px 12px 18px 12px;  /* menos margen lateral en cel */
     }
 
     table.data-table tr td.label {
-        width: 260px;
+        width: 40%;            /* un poco más de ancho para la etiqueta */
+        padding-right: 6px;
+        white-space: normal;   /* permite que la etiqueta se parta en 2 líneas */
     }
-}
 
-/* Columna de etiquetas */
-table.data-table tr td.label {
-    width: 260px;
-    font-weight: 700;
-    text-align: right;
-    padding-right: 10px;   /* un poco menos para compensar el span */
-    white-space: nowrap;
-}
+    td.label .label-text {
+        width: auto;           /* en cel no forzamos los 230px */
+    }
 
-/* Bloque fijo para alinear visualmente las etiquetas por la primera letra */
-td.label .label-text {
-    display: inline-block;
-    width: 230px;      /* prueba 220 / 230 / 240 hasta que veas que F y M coinciden */
-    text-align: left;  /* el texto dentro se alinea por la primera letra */
+    table.data-table tr td.value {
+        width: 60%;
+    }
 }
