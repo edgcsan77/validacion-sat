@@ -224,8 +224,6 @@ table.data-table tr td.value {
     table.data-table td {
         display: block;
         padding: 6px 6px;      /* un poco más de aire como el original */
-        word-break: normal;
-        overflow-wrap: break-word;
         line-height: 1.10;
     }
 
