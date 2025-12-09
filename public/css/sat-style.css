@@ -241,5 +241,9 @@ table.data-table tr td.value {
         width: 58%;
         text-align: left;
         font-weight: 400;
+
+        white-space: normal;
+        word-break: break-word;     /* deja que el último dígito baje */
+        overflow-wrap: break-word;
     }
 }
