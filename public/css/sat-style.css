@@ -217,12 +217,9 @@ table.data-table tr td.value {
 
     /* 🔥 ESTO ES LO QUE TE FALTABA (CENTRADO VERTICAL REAL) */
     table.data-table tr {
-        display: flex;
-        align-items: center;   /* ← CENTRA VERTICALMENTE COMO EL SAT */
     }
 
     table.data-table td {
-        display: block;
         padding: 6px 6px;      /* un poco más de aire como el original */
         word-break: normal;
         overflow-wrap: break-word;
