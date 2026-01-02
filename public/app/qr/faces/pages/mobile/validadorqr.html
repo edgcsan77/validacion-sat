@@ -153,40 +153,38 @@
     throw new Error("Parámetros inválidos");
   }
 
-  // Cambia esto si tu backend cambia de dominio
-  const API_BASE = "https://curp-backend.onrender.com";
+  // Función de normalización para comparar claves sin fallar por espacios/mayúsculas
+  const normalizarClave = (s) => (s || "").trim().toUpperCase();
 
-  const set = (id, value) => {
-    const el = document.getElementById(id);
-    if (el) el.textContent = value ?? "";
-  };
+  // 2) Cargar la base de datos estática (con anti-cache)
+  fetch(`/data/personas.json?ts=${Date.now()}`)
+    .then(r => r.json())
+    .then(db => {
+      console.log("D3 recibido:", D3);
+      console.log("Claves personas.json:", Object.keys(db));
 
-  // 2) Consultar TU API (Postgres) en vez de personas.json
-  fetch(`${API_BASE}/api/persona/${encodeURIComponent(D3)}`, {
-    method: "GET",
-    headers: { "Accept": "application/json" },
-  })
-    .then(async (r) => {
-      if (r.status === 404) return null;
-      if (!r.ok) throw new Error(`HTTP ${r.status}`);
-      return r.json();
-    })
-    .then((persona) => {
-      if (!persona) {
+      const d3Norm = normalizarClave(D3);
+
+      // Buscar una key que coincida con D3 aunque tenga diferencias mínimas
+      const key = Object.keys(db).find(k => normalizarClave(k) === d3Norm);
+
+      if (!key) {
         document.body.innerHTML = "<h2>No se encontró información para este código.</h2>";
         return;
       }
 
-      // ⚠️ Nota: tu backend usa "regimen" o "regimen" depende de cómo lo guardes.
-      // En tu registro actual (api.py) está: "regimen": core.REGIMEN (con acento)
-      // aquí lo mapeamos con fallback.
+      const persona = db[key];
+
+      const set = (id, value) => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = value || "";
+      };
 
       set("rfc", persona.rfc);
       set("curp", persona.curp);
       set("nombre", persona.nombre);
       set("apellido_paterno", persona.apellido_paterno);
       set("apellido_materno", persona.apellido_materno);
-
       set("fecha_nacimiento", persona.fecha_nacimiento);
       set("fecha_inicio_operaciones", persona.fecha_inicio_operaciones);
       set("situacion_contribuyente", persona.situacion_contribuyente);
@@ -203,13 +201,12 @@
       set("correo", persona.correo || "");
       set("al", persona.al || "");
 
-      // regimen + fecha_alta
-      set("regimen", persona.regimen || persona.regimen_fiscal || persona.regimenFiscal || "");
-      set("fecha_alta", persona.fecha_alta || "");
+      set("regimen", persona.regimen);
+      set("fecha_alta", persona.fecha_alta);
     })
-    .catch((err) => {
+    .catch(err => {
       console.error(err);
-      document.body.innerHTML = "<h2>Error consultando datos de validación.</h2>";
+      document.body.innerHTML = "<h2>Error cargando datos de validación.</h2>";
     });
 </script>
 
