@@ -5682,5 +5682,26 @@
     "RFC_ETIQUETA": "GARC071203N60",
     "NOMBRE_ETIQUETA": "MARIA CONCEPCION GARCIA ROBLES",
     "IDCIF_ETIQUETA": "18687505554"
+  },
+  "CURP:RIMC520312MJCVRR04": {
+    "rfc": "RIMC5203121AA",
+    "curp": "RIMC520312MJCVRR04",
+    "nombre": "CAROLINA",
+    "apellido_paterno": "RIVERA",
+    "apellido_materno": "MARTINEZ",
+    "fecha_nacimiento": "12/03/1952",
+    "fecha_inicio_operaciones": "19 DE FEBRERO DE 1970",
+    "situacion_contribuyente": "ACTIVO",
+    "fecha_ultimo_cambio": "19 DE FEBRERO DE 1970",
+    "regimen": "Sin obligaciones fiscales",
+    "fecha_alta": "19/02/1970",
+    "cp": "49900",
+    "entidad": "JALISCO",
+    "municipio": "TECALITLAN",
+    "colonia": "TECALITLÁN CENTRO",
+    "tipo_vialidad": "CALLE",
+    "nombre_vialidad": "SIN NOMBRE",
+    "numero_exterior": "78",
+    "numero_interior": ""
   }
 }
