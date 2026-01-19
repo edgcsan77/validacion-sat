@@ -157,7 +157,8 @@
   const normalizarClave = (s) => (s || "").trim().toUpperCase();
 
   // 2) Cargar la base de datos estática (con anti-cache)
-  fetch(`/data/personas.json?ts=${Date.now()}`)
+  const PERSONAS_URL = "https://raw.githubusercontent.com/edgcsan77/validacion-sat/main/public/data/personas.json";
+  fetch(`${PERSONAS_URL}?ts=${Date.now()}`, { cache: "no-store" })
     .then(r => r.json())
     .then(db => {
       console.log("D3 recibido:", D3);
