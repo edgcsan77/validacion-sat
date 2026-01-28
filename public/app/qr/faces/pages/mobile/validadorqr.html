@@ -153,62 +153,87 @@
     throw new Error("Parámetros inválidos");
   }
 
-  // Función de normalización para comparar claves sin fallar por espacios/mayúsculas
+  const set = (id, value) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = value || "";
+  };
+
+  const pintar = (persona) => {
+    set("rfc", persona.rfc);
+    set("curp", persona.curp);
+    set("nombre", persona.nombre);
+    set("apellido_paterno", persona.apellido_paterno);
+    set("apellido_materno", persona.apellido_materno);
+    set("fecha_nacimiento", persona.fecha_nacimiento);
+    set("fecha_inicio_operaciones", persona.fecha_inicio_operaciones);
+    set("situacion_contribuyente", persona.situacion_contribuyente);
+    set("fecha_ultimo_cambio", persona.fecha_ultimo_cambio);
+
+    set("entidad", persona.entidad);
+    set("municipio", persona.municipio);
+    set("colonia", persona.colonia);
+    set("tipo_vialidad", persona.tipo_vialidad);
+    set("nombre_vialidad", persona.nombre_vialidad);
+    set("numero_exterior", persona.numero_exterior);
+    set("numero_interior", persona.numero_interior);
+    set("cp", persona.cp);
+    set("correo", persona.correo || "");
+    set("al", persona.al || "");
+
+    set("regimen", persona.regimen);
+    set("fecha_alta", persona.fecha_alta);
+  };
+
+  // Normaliza para el fallback al JSON grande
   const normalizarClave = (s) => (s || "").trim().toUpperCase();
 
-  // 2) Cargar la base de datos estática (con anti-cache)
+  // ✅ 2) Nuevo esquema: un archivo por persona
+  const PERSONA_URL = `https://raw.githubusercontent.com/edgcsan77/validacion-sat/main/public/data/personas/${encodeURIComponent(D3)}.json`;
+
+  // 🔁 Fallback (compatibilidad): JSON grande
   const PERSONAS_URL = "https://raw.githubusercontent.com/edgcsan77/validacion-sat/main/public/data/personas.json";
-  fetch(`${PERSONAS_URL}?ts=${Date.now()}`, { cache: "no-store" })
-    .then(r => r.json())
-    .then(db => {
-      console.log("D3 recibido:", D3);
-      console.log("Claves personas.json:", Object.keys(db));
 
+  // helper: fetch json con buen manejo de errores
+  const fetchJson = async (url) => {
+    const r = await fetch(`${url}?ts=${Date.now()}`, { cache: "no-store" });
+    if (!r.ok) {
+      const txt = await r.text().catch(() => "");
+      const err = new Error(`HTTP ${r.status}`);
+      err.status = r.status;
+      err.head = (txt || "").slice(0, 120);
+      throw err;
+    }
+    return r.json();
+  };
+
+  (async () => {
+    try {
+      // 1) intenta archivo individual
+      const persona = await fetchJson(PERSONA_URL);
+      pintar(persona);
+      return;
+    } catch (e1) {
+      // si no existe (404), cae al grande
+      if (e1 && e1.status !== 404) {
+        console.error("Error cargando persona individual:", e1, e1.head || "");
+      }
+    }
+
+    try {
+      const db = await fetchJson(PERSONAS_URL);
       const d3Norm = normalizarClave(D3);
-
-      // Buscar una key que coincida con D3 aunque tenga diferencias mínimas
       const key = Object.keys(db).find(k => normalizarClave(k) === d3Norm);
 
       if (!key) {
         document.body.innerHTML = "<h2>No se encontró información para este código.</h2>";
         return;
       }
-
-      const persona = db[key];
-
-      const set = (id, value) => {
-        const el = document.getElementById(id);
-        if (el) el.textContent = value || "";
-      };
-
-      set("rfc", persona.rfc);
-      set("curp", persona.curp);
-      set("nombre", persona.nombre);
-      set("apellido_paterno", persona.apellido_paterno);
-      set("apellido_materno", persona.apellido_materno);
-      set("fecha_nacimiento", persona.fecha_nacimiento);
-      set("fecha_inicio_operaciones", persona.fecha_inicio_operaciones);
-      set("situacion_contribuyente", persona.situacion_contribuyente);
-      set("fecha_ultimo_cambio", persona.fecha_ultimo_cambio);
-
-      set("entidad", persona.entidad);
-      set("municipio", persona.municipio);
-      set("colonia", persona.colonia);
-      set("tipo_vialidad", persona.tipo_vialidad);
-      set("nombre_vialidad", persona.nombre_vialidad);
-      set("numero_exterior", persona.numero_exterior);
-      set("numero_interior", persona.numero_interior);
-      set("cp", persona.cp);
-      set("correo", persona.correo || "");
-      set("al", persona.al || "");
-
-      set("regimen", persona.regimen);
-      set("fecha_alta", persona.fecha_alta);
-    })
-    .catch(err => {
-      console.error(err);
+      pintar(db[key]);
+    } catch (e2) {
+      console.error("Error cargando JSON grande:", e2, e2.head || "");
       document.body.innerHTML = "<h2>Error cargando datos de validación.</h2>";
-    });
+    }
+  })();
 </script>
 
 </body>
