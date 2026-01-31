@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <script>
+    (function () {
+      const qs = new URLSearchParams(location.search);
+      const D1 = (qs.get("D1") || "").trim();
+
+      let target = "/app/qr/faces/pages/mobile/validadorqr.html";
+
+      if (D1 === "26") {
+        target = "/app/qr/faces/pages/mobile/validadorqr_sat_like.html";
+      }
+
+      location.replace(target + location.search);
+    })();
+  </script>
+</head>
+<body>Redirigiendo…</body>
+</html>
