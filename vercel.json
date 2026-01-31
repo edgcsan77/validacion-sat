@@ -2,7 +2,7 @@
   "routes": [
     {
       "src": "^/app/qr/faces/pages/mobile/validadorqr\\.jsf$",
-      "dest": "/app/qr/faces/pages/mobile/validadorqr.html"
+      "dest": "/app/qr/faces/pages/mobile/validadorqr_dispatch.html"
     }
   ]
 }
