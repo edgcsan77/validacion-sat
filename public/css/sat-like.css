@@ -246,6 +246,9 @@ table.data-table tr td.value {
 
   tr.sat-row-top td{
     padding-top: 6px;
-    padding-bottom: 8px;
+  }
+
+  .sat-row-top td{
+    padding-bottom: 4px;
   }
 }
