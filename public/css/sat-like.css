@@ -233,7 +233,7 @@ table.data-table tr td.value {
   table.data-table td.label{
     width: 42%;
     text-align: right;
-    padding-right: 20px;
+    padding-right: 10px;
     font-weight: 600;
     white-space: nowrap;
     vertical-align: middle;
@@ -248,7 +248,7 @@ table.data-table tr td.value {
   }
 
   tr.sat-row-top td{
-    padding-top: 6px;
+    padding-top: 18px;
   }
 
   .sat-row-top td{
