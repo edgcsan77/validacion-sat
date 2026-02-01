@@ -193,7 +193,7 @@ table.data-table tr td.value {
 
   .panel-body,
   .sat-body-tight {
-    padding: 20px 14px 16px 14px;
+    padding: 10px 14px 16px 14px;
   }
 
   table.data-table tr td.label {
@@ -214,6 +214,8 @@ table.data-table tr td.value {
 
   .sat-header { margin-bottom: 50px; }
   .sat-header img { max-width: 330px; }
+
+  .sat-row-top td {padding-bottom: 8px;}
 
   .sat-card-inner{
     padding: 19px 26px;
