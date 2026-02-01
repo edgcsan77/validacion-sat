@@ -209,8 +209,10 @@ table.data-table tr td.value {
   body { font-size: 14.5px; padding-bottom: 50px; }
   .page-wrapper { padding: 0 14px; }
 
-  .sat-header { margin-bottom: 14px; }
+  .sat-header { margin-bottom: 50px; }
   .sat-header img { max-width: 330px; }
+
+  .sat-card-inner { padding: 19px 26px; }
 
   table.data-table{
     width: 100%;
