@@ -228,13 +228,12 @@ table.data-table tr td.value {
     padding: 6px 6px;
     line-height: 1.10;
     vertical-align: top;
-    padding-right: 40px;
   }
 
   table.data-table td.label{
     width: 42%;
     text-align: right;
-    padding-right: 10px;
+    padding-right: 6px;
     font-weight: 600;
     white-space: nowrap;
     vertical-align: middle;
