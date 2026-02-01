@@ -193,7 +193,7 @@ table.data-table tr td.value {
 
   .panel-body,
   .sat-body-tight {
-    padding: 10px 14px 16px 48px;
+    padding: 20px 14px 16px 14px;
   }
 
   table.data-table tr td.label {
