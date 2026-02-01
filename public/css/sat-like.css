@@ -212,7 +212,10 @@ table.data-table tr td.value {
   .sat-header { margin-bottom: 50px; }
   .sat-header img { max-width: 330px; }
 
-  .sat-card-inner { padding: 19px 26px; }
+  .sat-card-inner { 
+    padding: 19px 26px; 
+    text-indent: 36px;
+  }
 
   table.data-table{
     width: 100%;
