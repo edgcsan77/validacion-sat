@@ -205,116 +205,43 @@ table.data-table tr td.value {
 
 /* ===== AJUSTE REAL SAT PARA CELULAR (TU MISMO) ===== */
 @media (max-width: 768px) {
-  body {
-    font-size: 14.5px;
-    padding-bottom: 50px;
-  }
 
+  body { font-size: 14.5px; padding-bottom: 50px; }
   .page-wrapper { padding: 0 14px; }
 
-  .sat-header { margin-bottom: 50px; }
+  .sat-header { margin-bottom: 14px; }
   .sat-header img { max-width: 330px; }
 
-  .sat-row-top td {padding-bottom: 60px !important;}
-
-  .sat-card-inner{
-    padding: 19px 26px;
-  }
-
-  table.data-table {
+  table.data-table{
     width: 100%;
     table-layout: fixed;
     font-size: 14.5px;
-  }
-
-  table.data-table tr {
-    display: flex;
-    align-items: center;
-  }
-
-  table.data-table td {
-    display: block;
-    padding: 6px 6px;
-    line-height: 1.10;
-  }
-
-  table.data-table td.label {
-    width: 42%;
-    text-align: right;
-    padding-right: 8px;
-    white-space: normal;
-    font-weight: 600;
-  }
-
-  table.data-table td.value {
-    width: 58%;
-    text-align: left;
-    font-weight: 400;
-    white-space: normal;
-    word-break: break-word;
-    overflow-wrap: break-word;
-  }
-
-  .sat-mono { font-size: 12.6px; }
-}
-
-@media (max-width: 768px){
-
-  /* 1) La primera fila (RFC) que sea centrada */
-  table.data-table tr:first-child{
-    display: block;          /* rompe el flex SOLO en esa fila */
-    text-align: center;
-    padding: 6px 0 2px 0;    /* altura de la línea RFC */
-  }
-
-  table.data-table tr:first-child td{
-    display: inline;         /* junta label + valor en una sola línea */
-    width: auto !important;
-    padding: 0 !important;
-  }
-
-  table.data-table tr:first-child td.label{
-    text-align: left;        /* da igual, pero evita rarezas */
-    white-space: nowrap;
-    font-weight: 600;
-  }
-
-  table.data-table tr:first-child td.value{
-    text-align: left;
-    font-weight: 400;
-  }
-
-}
-
-@media (max-width: 768px){
-
-  /* 1) Regresa a layout de TABLA real (no flex) */
-  table.data-table tr{
-    display: table-row !important;
+    border-collapse: collapse;
   }
 
   table.data-table td{
-    display: table-cell !important;
     padding: 6px 6px;
     line-height: 1.10;
     vertical-align: top;
   }
 
-  /* 2) Columna etiqueta (misma para RFC y Cadena) */
   table.data-table td.label{
-    width: 42% !important;      /* o usa px si quieres: 150px */
+    width: 42%;
     text-align: right;
     padding-right: 10px;
     font-weight: 600;
     white-space: nowrap;
   }
 
-  /* 3) Columna valor */
   table.data-table td.value{
-    width: 58% !important;
+    width: 58%;
     text-align: left;
     white-space: normal;
     word-break: break-word;
     overflow-wrap: anywhere;
+  }
+
+  tr.sat-row-top td{
+    padding-top: 6px;
   }
 }
