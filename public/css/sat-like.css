@@ -285,3 +285,36 @@ table.data-table tr td.value {
   }
 
 }
+
+@media (max-width: 768px){
+
+  /* 1) Regresa a layout de TABLA real (no flex) */
+  table.data-table tr{
+    display: table-row !important;
+  }
+
+  table.data-table td{
+    display: table-cell !important;
+    padding: 6px 6px;
+    line-height: 1.10;
+    vertical-align: top;
+  }
+
+  /* 2) Columna etiqueta (misma para RFC y Cadena) */
+  table.data-table td.label{
+    width: 42% !important;      /* o usa px si quieres: 150px */
+    text-align: right;
+    padding-right: 10px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  /* 3) Columna valor */
+  table.data-table td.value{
+    width: 58% !important;
+    text-align: left;
+    white-space: normal;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+}
