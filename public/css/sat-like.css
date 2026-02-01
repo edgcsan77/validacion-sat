@@ -215,6 +215,10 @@ table.data-table tr td.value {
   .sat-header { margin-bottom: 50px; }
   .sat-header img { max-width: 330px; }
 
+  .sat-card-inner{
+    padding: 10px 12px;
+  }
+
   table.data-table {
     width: 100%;
     table-layout: fixed;
