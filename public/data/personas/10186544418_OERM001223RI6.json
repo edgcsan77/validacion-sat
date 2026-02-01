@@ -5,8 +5,8 @@
   "rfc": "OERM001223RI6",
   "curp": "OERM001223MJCRYRA8",
   "nombre": "MIREYA SINAI",
-  "apellido_paterno": "",
-  "apellido_materno": "",
+  "apellido_paterno": "ORNELAS",
+  "apellido_materno": "REYES",
   "fecha_nacimiento": "",
   "fecha_inicio_operaciones": "01-06-2021",
   "situacion_contribuyente": "ACTIVO",
@@ -24,6 +24,6 @@
   "correo": "",
   "al": "JALISCO 1",
   "RFC_ETIQUETA": "OERM001223RI6",
-  "NOMBRE_ETIQUETA": "MIREYA SINAI",
+  "NOMBRE_ETIQUETA": "MIREYA SINAI ORNELAS REYES",
   "IDCIF_ETIQUETA": "10186544418"
 }
