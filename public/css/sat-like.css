@@ -212,8 +212,8 @@ table.data-table tr td.value {
 
   .page-wrapper { padding: 0 14px; }
 
-  .sat-header { margin-bottom: 14px; }
-  .sat-header img { max-width: 360px; }
+  .sat-header { margin-bottom: 20px; }
+  .sat-header img { max-width: 280px; }
 
   table.data-table {
     width: 100%;
