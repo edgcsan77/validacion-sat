@@ -257,3 +257,31 @@ table.data-table tr td.value {
 
   .sat-mono { font-size: 12.6px; }
 }
+
+@media (max-width: 768px){
+
+  /* 1) La primera fila (RFC) que sea centrada */
+  table.data-table tr:first-child{
+    display: block;          /* rompe el flex SOLO en esa fila */
+    text-align: center;
+    padding: 6px 0 2px 0;    /* altura de la línea RFC */
+  }
+
+  table.data-table tr:first-child td{
+    display: inline;         /* junta label + valor en una sola línea */
+    width: auto !important;
+    padding: 0 !important;
+  }
+
+  table.data-table tr:first-child td.label{
+    text-align: left;        /* da igual, pero evita rarezas */
+    white-space: nowrap;
+    font-weight: 600;
+  }
+
+  table.data-table tr:first-child td.value{
+    text-align: left;
+    font-weight: 400;
+  }
+
+}
