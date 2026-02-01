@@ -225,7 +225,7 @@ table.data-table tr td.value {
   }
 
   table.data-table td{
-    padding: 6px 6px 6px 2px;
+    padding: 6px 6px 6px 0px;
     line-height: 1.10;
     vertical-align: top;
   }
