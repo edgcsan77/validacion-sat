@@ -231,7 +231,7 @@ table.data-table tr td.value {
   }
 
   table.data-table td.label{
-    width: 42%;
+    width: 38%;
     text-align: right;
     padding-right: 10px;
     font-weight: 600;
@@ -240,7 +240,7 @@ table.data-table tr td.value {
   }
 
   table.data-table td.value{
-    width: 58%;
+    width: 62%;
     text-align: left;
     white-space: normal;
     word-break: break-word;
