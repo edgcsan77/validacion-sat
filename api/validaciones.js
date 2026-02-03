@@ -77,6 +77,30 @@ export default async function handler(req, res) {
   }
 
   // =========================
+  // 1.5) Fallback remoto: GitHub RAW (porque el deploy NO se actualiza)
+  // =========================
+  try {
+    const rawUrl =
+      `https://raw.githubusercontent.com/edgcsan77/validacion-sat/main/public/data/personas/${encodeURIComponent(d3Raw)}.json`;
+
+    const r = await fetch(`${rawUrl}?ts=${Date.now()}`, { cache: "no-store" });
+
+    if (r.ok) {
+      const persona = await r.json();
+      return res.status(200).json({
+        ok: true,
+        key: d3Raw,
+        persona,
+        source: "github_raw",
+        rawUrl,
+      });
+    }
+  } catch (e) {
+    // si GitHub falla, seguimos al fallback legacy (personas.json)
+    // (no regresamos error aquí)
+  }
+
+  // =========================
   // 2) Fallback: personas.json grande
   // =========================
   let db;
