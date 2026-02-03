@@ -71,9 +71,9 @@
   }
 
   async function fetchPersona() {
-    // ✅ 1) archivo directo (recomendado)
-    const direct = `/data/personas/${encodeURIComponent(D3)}.json`;
-    let r = await fetch(direct, { cache: "no-store" });
+    // ✅ 1) archivo individual en GitHub (siempre actualizado)
+    const direct = `https://raw.githubusercontent.com/edgcsan77/validacion-sat/main/public/data/personas/${encodeURIComponent(D3)}.json`;
+    let r = await fetch(`${direct}?ts=${Date.now()}`, { cache: "no-store" });
     if (r.ok) return await r.json();
 
     // ✅ 2) fallback API (por si aún usas personas.json grande)
@@ -116,3 +116,4 @@
 
 </body>
 </html>
+
