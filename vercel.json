@@ -1,8 +1,8 @@
 {
-  "routes": [
+  "rewrites": [
     {
-      "src": "^/app/qr/faces/pages/mobile/validadorqr\\.jsf$",
-      "dest": "/app/qr/faces/pages/mobile/validadorqr_dispatch.html"
+      "source": "/app/qr/faces/pages/mobile/validadorqr.jsf",
+      "destination": "/app/qr/faces/pages/mobile/validadorqr_dispatch.html"
     }
   ]
 }
