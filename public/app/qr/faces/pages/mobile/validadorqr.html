@@ -142,11 +142,10 @@
 </div>
 
 <script>
-  // 1) Leer parámetros D1, D2, D3
   const params = new URLSearchParams(window.location.search);
   const D1 = params.get("D1");
   const D2 = params.get("D2");
-  const D3 = params.get("D3"); // idCIF_RFC
+  const D3 = params.get("D3");
 
   if (D1 !== "10" || D2 !== "1" || !D3) {
     document.body.innerHTML = "<h2>QR inválido</h2>";
@@ -158,42 +157,45 @@
     if (el) el.textContent = value || "";
   };
 
-  const pintar = (persona) => {
-    set("rfc", persona.rfc);
-    set("curp", persona.curp);
-    set("nombre", persona.nombre);
-    set("apellido_paterno", persona.apellido_paterno);
-    set("apellido_materno", persona.apellido_materno);
-    set("fecha_nacimiento", persona.fecha_nacimiento);
-    set("fecha_inicio_operaciones", persona.fecha_inicio_operaciones);
-    set("situacion_contribuyente", persona.situacion_contribuyente);
-    set("fecha_ultimo_cambio", persona.fecha_ultimo_cambio);
-
-    set("entidad", persona.entidad);
-    set("municipio", persona.municipio);
-    set("colonia", persona.colonia);
-    set("tipo_vialidad", persona.tipo_vialidad);
-    set("nombre_vialidad", persona.nombre_vialidad);
-    set("numero_exterior", persona.numero_exterior);
-    set("numero_interior", persona.numero_interior);
-    set("cp", persona.cp);
-    set("correo", persona.correo || "");
-    set("al", persona.al || "");
-
-    set("regimen", persona.regimen);
-    set("fecha_alta", persona.fecha_alta);
+  const pick = (obj, ...keys) => {
+    for (const k of keys) {
+      const v = obj?.[k];
+      if (v !== undefined && v !== null && String(v).trim() !== "") return String(v);
+    }
+    return "";
   };
 
-  // Normaliza para el fallback al JSON grande
+  const pintar = (persona) => {
+    set("rfc", pick(persona, "rfc", "RFC", "RFC_ETIQUETA"));
+    set("curp", pick(persona, "curp", "CURP"));
+    set("nombre", pick(persona, "nombre", "NOMBRE"));
+    set("apellido_paterno", pick(persona, "apellido_paterno", "primer_apellido", "PRIMER_APELLIDO"));
+    set("apellido_materno", pick(persona, "apellido_materno", "segundo_apellido", "SEGUNDO_APELLIDO"));
+    set("fecha_nacimiento", pick(persona, "fecha_nacimiento", "FECHA_NACIMIENTO"));
+    set("fecha_inicio_operaciones", pick(persona, "fecha_inicio_operaciones", "FECHA_INICIO", "FECHA_INICIO_OPERACIONES"));
+    set("situacion_contribuyente", pick(persona, "situacion_contribuyente", "ESTATUS", "estatus"));
+    set("fecha_ultimo_cambio", pick(persona, "fecha_ultimo_cambio", "FECHA_ULTIMO", "FECHA_ULTIMO_CAMBIO"));
+
+    set("entidad", pick(persona, "entidad", "ENTIDAD"));
+    set("municipio", pick(persona, "municipio", "localidad", "LOCALIDAD", "MUNICIPIO"));
+    set("colonia", pick(persona, "colonia", "COLONIA"));
+    set("tipo_vialidad", pick(persona, "tipo_vialidad", "TIPO_VIALIDAD"));
+    set("nombre_vialidad", pick(persona, "nombre_vialidad", "vialidad", "VIALIDAD"));
+    set("numero_exterior", pick(persona, "numero_exterior", "no_exterior", "NO_EXTERIOR"));
+    set("numero_interior", pick(persona, "numero_interior", "no_interior", "NO_INTERIOR"));
+    set("cp", pick(persona, "cp", "CP"));
+    set("correo", pick(persona, "correo", "CORREO"));
+    set("al", pick(persona, "al", "AL"));
+
+    set("regimen", pick(persona, "regimen", "REGIMEN"));
+    set("fecha_alta", pick(persona, "fecha_alta", "FECHA_ALTA"));
+  };
+
   const normalizarClave = (s) => (s || "").trim().toUpperCase();
 
-  // ✅ 2) Nuevo esquema: un archivo por persona
   const PERSONA_URL = `https://raw.githubusercontent.com/edgcsan77/validacion-sat/main/public/data/personas/${encodeURIComponent(D3)}.json`;
-
-  // 🔁 Fallback (compatibilidad): JSON grande
   const PERSONAS_URL = "https://raw.githubusercontent.com/edgcsan77/validacion-sat/main/public/data/personas.json";
 
-  // helper: fetch json con buen manejo de errores
   const fetchJson = async (url) => {
     const r = await fetch(`${url}?ts=${Date.now()}`, { cache: "no-store" });
     if (!r.ok) {
@@ -208,12 +210,10 @@
 
   (async () => {
     try {
-      // 1) intenta archivo individual
       const persona = await fetchJson(PERSONA_URL);
       pintar(persona);
       return;
     } catch (e1) {
-      // si no existe (404), cae al grande
       if (e1 && e1.status !== 404) {
         console.error("Error cargando persona individual:", e1, e1.head || "");
       }
@@ -228,6 +228,7 @@
         document.body.innerHTML = "<h2>No se encontró información para este código.</h2>";
         return;
       }
+
       pintar(db[key]);
     } catch (e2) {
       console.error("Error cargando JSON grande:", e2, e2.head || "");
