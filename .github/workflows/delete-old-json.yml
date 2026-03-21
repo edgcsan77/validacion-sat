@@ -1,9 +1,9 @@
-name: Delete old JSON files
+name: Delete old persona JSON files
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 8 * * *"   # diario a las 08:00 UTC
+    - cron: "0 8 * * *"
 
 permissions:
   contents: write
@@ -23,17 +23,17 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-      - name: Eliminar JSON con último commit mayor a 60 días
+      - name: Eliminar JSON viejos solo en public/data/personas
         shell: bash
         run: |
           set -e
 
           MAX_DAYS=60
           NOW=$(date +%s)
-          DELETED=0
 
-          echo "Buscando archivos .json trackeados..."
-          git ls-files '*.json' | while IFS= read -r file; do
+          echo "Buscando JSON en public/data/personas..."
+
+          git ls-files 'public/data/personas/*.json' | while IFS= read -r file; do
             [ -z "$file" ] && continue
 
             LAST_COMMIT=$(git log -1 --format="%ct" -- "$file" || true)
@@ -48,15 +48,12 @@ jobs:
             if [ "$DIFF_DAYS" -gt "$MAX_DAYS" ]; then
               echo "Eliminando $file ($DIFF_DAYS días)"
               git rm -f -- "$file"
-              DELETED=$((DELETED + 1))
             fi
           done
-
-          echo "Archivos eliminados: $DELETED"
 
           if git diff --cached --quiet; then
             echo "No hay cambios para commit"
           else
-            git commit -m "chore: eliminar archivos json con más de 60 días"
+            git commit -m "cleanup: eliminar json viejos de public/data/personas"
             git push
           fi
