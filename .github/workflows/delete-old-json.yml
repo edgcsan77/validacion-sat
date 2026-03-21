@@ -1,0 +1,62 @@
+name: Delete old JSON files
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 8 * * *"   # diario a las 08:00 UTC
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo completo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configurar Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Eliminar JSON con último commit mayor a 60 días
+        shell: bash
+        run: |
+          set -e
+
+          MAX_DAYS=60
+          NOW=$(date +%s)
+          DELETED=0
+
+          echo "Buscando archivos .json trackeados..."
+          git ls-files '*.json' | while IFS= read -r file; do
+            [ -z "$file" ] && continue
+
+            LAST_COMMIT=$(git log -1 --format="%ct" -- "$file" || true)
+
+            if [ -z "$LAST_COMMIT" ]; then
+              echo "No se pudo leer commit de: $file"
+              continue
+            fi
+
+            DIFF_DAYS=$(( (NOW - LAST_COMMIT) / 86400 ))
+
+            if [ "$DIFF_DAYS" -gt "$MAX_DAYS" ]; then
+              echo "Eliminando $file ($DIFF_DAYS días)"
+              git rm -f -- "$file"
+              DELETED=$((DELETED + 1))
+            fi
+          done
+
+          echo "Archivos eliminados: $DELETED"
+
+          if git diff --cached --quiet; then
+            echo "No hay cambios para commit"
+          else
+            git commit -m "chore: eliminar archivos json con más de 60 días"
+            git push
+          fi
