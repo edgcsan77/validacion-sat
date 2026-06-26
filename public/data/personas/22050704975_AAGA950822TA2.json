@@ -3,10 +3,10 @@
   "D2": "1",
   "D3": "22050704975_AAGA950822TA2",
   "rfc": "AAGA950822TA2",
-  "curp": "",
-  "nombre": "AAGA950822MMCMNL00",
-  "apellido_paterno": "",
-  "apellido_materno": "",
+  "curp": "AAGA950822MMCMNL00",
+  "nombre": "ALEJANDRA",
+  "apellido_paterno": "AMADOR",
+  "apellido_materno": "GONZALEZ",
   "fecha_nacimiento": "",
   "fecha_inicio_operaciones": "",
   "situacion_contribuyente": "ACTIVO",
@@ -24,6 +24,6 @@
   "correo": "",
   "al": "",
   "RFC_ETIQUETA": "AAGA950822TA2",
-  "NOMBRE_ETIQUETA": "AAGA950822MMCMNL00",
+  "NOMBRE_ETIQUETA": "ALEJANDRA AMADOR GONZALEZ",
   "IDCIF_ETIQUETA": "22050704975"
 }
